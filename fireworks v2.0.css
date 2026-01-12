@@ -1,0 +1,126 @@
+
+
+.block-audio {
+	display: none;
+}
+html, body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden; /* 🔥 khóa scroll */
+  background: rgba(0, 0, 0, 0.85);
+}
+
+/* FIREWORK + HEART CANVAS */
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+}
+
+/* HEART PARTICLE */
+#pinkboard {
+  z-index: 10;
+}
+
+/* IMAGE HEART */
+#heart-images {
+  position: absolute;
+  overflow: hidden;     /* 🔥 quan trọng */
+  pointer-events: none;
+}
+
+.heart-img {
+  position: absolute;
+  width: var(--img-size);
+  height: var(--img-size);
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  border-radius: 6px;
+}
+
+@keyframes heartCrazy {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+
+  10% {
+    transform: translate(-4px, -6px) scale(1.05) rotate(-2deg);
+  }
+
+  20% {
+    transform: translate(4px, -10px) scale(1.12) rotate(2deg);
+  }
+
+  35% {
+    transform: translate(-6px, -14px) scale(1.08) rotate(-3deg);
+  }
+
+  50% {
+    transform: translate(6px, -18px) scale(1.15) rotate(3deg);
+  }
+
+  65% {
+    transform: translate(-4px, -12px) scale(1.1) rotate(-2deg);
+  }
+
+  80% {
+    transform: translate(4px, -6px) scale(1.05) rotate(2deg);
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+}
+
+.heart-img {
+  position: absolute;
+  width: var(--img-size);
+  height: var(--img-size);
+  object-fit: cover;
+  opacity: 0;
+  border-radius: 6px;
+
+  animation: heartCrazy 2.8s cubic-bezier(.68,-0.55,.27,1.55) infinite;
+
+  transition: opacity 0.8s ease;
+  will-change: transform;
+}
+
+#birthday-banner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-150vw, -50%);
+  padding: 20px 40px;
+
+  background: #fff;
+  color: #000;
+
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: 2px;
+
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+
+  white-space: nowrap;
+  z-index: 999;
+  opacity: 0;
+}
+
+/* animation kéo ngang */
+@keyframes slideInCenter {
+  from {
+    transform: translate(-150vw, -50%);
+    opacity: 1;
+  }
+  to {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
